@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import geohash from 'latlon-geohash';
 
 import Phaser from 'phaser'
 
@@ -9,9 +10,12 @@ import Phaser from 'phaser'
 })
 export class HomePage {
 
+  geo: string;
+
   constructor(public navCtrl: NavController) {
     console.log(Phaser)
     this.buildPhaserRenderer();
+    this.geo = geohash.encode(13.100, 100.00);
   }
 
   private buildPhaserRenderer() {
